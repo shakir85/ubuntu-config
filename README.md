@@ -1,2 +1,2 @@
 # ubuntu-config
-Various ubuntu configurations
+Various Ubuntu configurations
