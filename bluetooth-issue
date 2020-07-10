@@ -1,3 +1,10 @@
+## Quick Fix
+## Debian https://packages.debian.org/search?keywords=pavucontrol
+Kill all pulseausio services first and see if this can fix the issue
+```
+sudo killall pulseaudio
+```
+
 ## Fix Bluetooth connection
 Modify `/etc/pulse/default.pa` to automatically switch pulseaudio sink to Bluez:
 
