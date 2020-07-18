@@ -1,2 +1,2 @@
 # ubuntu-config
-Various Ubuntu, KUbuntu configurations
+Various Ubuntu (Gnome/KDE) configurations.
