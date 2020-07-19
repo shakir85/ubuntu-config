@@ -1,0 +1,13 @@
+
+
+####################################################################
+# Fixing dpkg when a package isn't fully installed.
+# Issue: When a package doesn't completely installed,
+# it causes dpkg to freez in updating packages lists or
+# installing a package or a dependency
+####################################################################
+
+sudo rm /var/lib/dpkg/info/[package_name].*
+sudo dpkg --configure -a
+sudo apt-get update
+sudo apt-get remove/purge [package-name]
