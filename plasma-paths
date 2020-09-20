@@ -1,0 +1,43 @@
+# Dolphine services
+~/.local/share/kservices5/ServiceMenus/
+
+# To find where services directories are
+kf5-config --path services
+
+# Widgets path (place .svgz here)
+/usr/share/plasma/desktoptheme/air/widgets
+
+# Widgets Path in .local (place .qml here)
+~/.local/share/plasma/plasmoids
+
+# Fusuma path
+/var/lib/gems/2.7.0/gems/fusuma-1.10.1/exe/fusuma.sh
+
+# Global Themes path
+~/.local/share/plasma/desktoptheme/
+
+# Icons
+/usr/share/icons
+
+# Cursor inconsistency
+/usr/share/icons/default/index.theme
+    Replace: Inherits=Adwaita
+    To: Inherits=YOUR_CURSOR_SET_NAME
+    
+# Latte saves its settings here
+
+~/.config/lattedockrc
+~/.config/latte
+~/.local/share/latte-layouts
+
+# Install plasmoids from KDE store
+kpackagetool5 -t Plasma/Applet --install .
+
+# OR this better:
+plasmapkg2 -i <plasmoid file>
+
+# Build from source
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=`kf5-config --prefix` ..
+make
+sudo make install
