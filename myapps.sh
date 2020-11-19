@@ -78,7 +78,7 @@ sleep 3
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 curl -sS https://download.spotify.com/debian/pubkey.gpg | apt-key add - 
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" |  tee /etc/apt/sources.list.d/spotify.list
+echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
 
 
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
@@ -135,7 +135,8 @@ printf "] Done!
 echo -e "\nPPAs added successfully, now installing packages..." && sleep 3
 
 apt update
-timeshift flatpak gnome-software-plugin-flatpak gimp \
+apt install -y timeshift flatpak gnome-software-plugin-flatpak gimp \
+
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 echo "Done!"
@@ -144,15 +145,7 @@ echo "Done!"
 echo -e "\n ** DOWNLOAD & INSTALL '.deb' PACKAGES **"
 FLOW_CONTROL
 
-temp="/home/${USER}/temp"
 
-if [ ! -d "$temp" ] ; then
-    mkdir "$temp" && cd "$temp" || return
-else
-    echo "Directory $temp exists..." && cd "$temp"
-fi
-
-echo "Moved to $PDW"
 echo -e "\nDownloading Debian packages...\n" && sleep 3
 
 wget -O mailspring.deb https://updates.getmailspring.com/download?platform=linuxDeb
@@ -170,14 +163,13 @@ apt install -y ./dropbox.deb
 wget -O ulancher.deb https://github.com/Ulauncher/Ulauncher/releases/download/5.8.0/ulauncher_5.8.0_all.deb
 apt install -y ./ulancher.deb
 
+
 echo -e "\n** INSTALLING SNAPS **" && sleep 3
 
 # Snap Installs
 snap install bitwarden
 snap install authy --beta
 
-# Cleanup & reboot
-rm -rf ./*
 
 echo -e "\n** CLEAN UP APT **"
 apt autoclean -y
