@@ -3,10 +3,13 @@
 # on the intergrated graphics driver mode or the hyprid mode. It has to be via nvidia.
 # This sucks because it makes the battery drains so fast.
 # -----------------------------------------------------------
-# Make sure you have [deep] not [s2idle]
+# Make sure you have [deep] not [s2idle]sudo apt-get --reinstall install grub-pc
+
 cat /sys/power/mem_sleep
 # Make sure your grub default parameters have deep
 # cat /etc/default/grub
+# if no such file, install grub
+sudo apt-get --reinstall install grub-pc
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash mem_sleep_default=deep"
 
 
