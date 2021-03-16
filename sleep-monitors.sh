@@ -3,6 +3,13 @@
 # on the intergrated graphics driver mode or the hyprid mode. It has to be via nvidia.
 # This sucks because it makes the battery drains so fast.
 # -----------------------------------------------------------
+# Make sure you have [deep] not [s2idle]
+cat /sys/power/mem_sleep
+# Make sure your grub default parameters have deep
+# cat /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash mem_sleep_default=deep"
+
+
 sudo prime-select nvidia
 # removed blacklisting:
 sudo rm /etc/modprobe.d/blacklist-nvidia.conf /lib/modprobe.d/blacklist-nvidia.conf
