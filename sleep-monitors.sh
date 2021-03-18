@@ -10,7 +10,8 @@ cat /sys/power/mem_sleep
 # cat /etc/default/grub
 # if no such file, install grub
 sudo apt-get --reinstall install grub-pc
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash mem_sleep_default=deep"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash mem_sleep_default=deep rcutree.rcu_idle_gp_delay=1"
+sudo kernelstub -a mem_sleep_default=deep
 
 
 sudo prime-select nvidia
