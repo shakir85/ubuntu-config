@@ -12,7 +12,7 @@ cat /sys/power/mem_sleep
 sudo apt-get --reinstall install grub-pc
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash mem_sleep_default=deep rcutree.rcu_idle_gp_delay=1"
 sudo kernelstub -a mem_sleep_default=deep
-
+sudo kernelstub -a rcutree.rcu_idle_gp_delay=1
 
 sudo prime-select nvidia
 # removed blacklisting:
