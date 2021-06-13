@@ -1,0 +1,5 @@
+To fix Gmail blocking Kmail from sending email:
+
+- Enable 2 factor authentication in google settings
+- Generate an app password as stated here: https://support.google.com/mail/answer/185833?hl=en
+- In Kmail > Settings > Configure Kmail > Accounts > Sending click on Google Mail > Copy the generated app password in password field
